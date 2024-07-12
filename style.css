@@ -1,56 +1,143 @@
-/* * {
-    padding: 0;
+*{
     margin: 0;
-  } */
-  
-  body {
+    padding: 0;
+}
+
+body {
     width: 100vw;
     height: 100vh;
-    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  #imgDiv {
-    width: 500px;
-    height: 500px;
-    background-color: red;
-    /* border-radius: 50%; */
-    /* position: relative; */
-  }
-  
-  #iconDiv {
-    width: 80%;
-    height: 80%;
-    background-color: black;
+}
+
+#imgDiv {
+    width: 40%;
+    max-width: 500px;
+    aspect-ratio: 1/1;
     position: relative;
+    border-radius: 50%;
+    background: url("./images/zoro2.jpg") no-repeat center;
+    background-size: cover;
+    /* z-index: -1; */
+}
+
+#imgDiv::before {
+    content: '';
+    position: absolute;
+    top: -22%;
+    left: -22%;
+    width: 144%;
+    height: 144%;
+    /* background-image: url(http://placehold.it/200x100); */
+    border-radius: 50%;
+}
+
+.gear {
+    width: 67%;
+    aspect-ratio: 1/1;
+    position: absolute;
     animation: rotation 15s infinite linear;
-    /* border-radius: 50%; */
-    /* padding: 100px; */
-    /* border: 1px solid silver; */
+    border-radius: 50%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+}
+
+#icon1, #icon5 {
+    left: -30%;
+    top: -30%;
+}
+
+#icon2, #icon6 {
+    left: 100%;
+    top: -30%;
+}
+
+#icon3, #icon7 {
+    left: 100%;
+    top: 100%;
+}
+#icon4, #icon8 {
+    left: -30%;
+    top: 100%;
+}
+
+#icon6 .tooltiptext {
+    visibility: hidden;
+    padding: 0.25em 0.5em;
+    background-color: skyblue;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.25em;
+    white-space: nowrap;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 35%;
+    left: 110%;
+    transition-property: visibility;
+    transition-delay: 0s;
   }
 
-#icon1 {
-    width: 100px;
-    height: 100px;
-    background-color: greenyellow;
-    position: relative;
-    left: -100px;
-    top: -100px;
-    /* margin: 50px; */
-    /* border-radius: 50%; */
-}
-#icon1:hover {
-    background-color: aqua;
+.button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    border-radius: 50%;
+
+    background-color: orange;
+
+    animation: rotateIcons 15s infinite linear;
 }
 
-  /* .iconDiv::before {
+.animeDelay {
+    animation-delay: 1950ms;
+}
+
+.button svg{
+    width: 70%;
+    height: 70%;
+}
+
+#icon5:hover {
+    background-color: grey;
+    background: url(http://placehold.it/200x100)  no-repeat center;
+
+} 
+
+#icon2:hover {
+    filter: brightness(50%);
+    cursor: pointer;
+} 
+
+#icon6:hover {
+    cursor: pointer;
+}
+#icon6:hover .tooltiptext {
+    visibility: visible;
+    transition-delay: 0.3s;
+  } 
+
+
+#imgDiv:hover .gear {
+    background-color: aqua;
+    animation-play-state: paused;
+}
+
+#imgDiv:hover .button {
+    /* background-color: aqua; */
+    animation-play-state: paused;
+}
+
+/* .iconDiv::before {
     content: "";
     width: 100px;
     height: 100px;
@@ -59,13 +146,22 @@
     left: -100px;
     top: -1000px;
     border-radius: 50%;
-  } */
-
-
+} */
   
-  @keyframes rotation {
+@keyframes rotation {
     0% {
-      transform: translate(-50%, -50%) rotate(-360deg);
+        transform: translate(-50%, -50%) rotate(-360deg);
     }
-  }
+}
+@keyframes rotation2 {
+    0% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+@keyframes rotateIcons {
+    0% {
+        transform: rotate(360deg);
+    }
+}
   
